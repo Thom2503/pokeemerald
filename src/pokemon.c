@@ -7082,15 +7082,15 @@ struct MonSpritesGfxManager *CreateMonSpritesGfxManager(void)
     else
     {
         gfx->active = TRUE;
-        sMonSpritesGfxManager = gfx;
+        sMonSpritesGfxManagers = gfx;
     }
  
-    return sMonSpritesGfxManager;
+    return sMonSpritesGfxManagers;
 }
 
 void DestroyMonSpritesGfxManager(void)
 {
-    struct MonSpritesGfxManager *gfx = sMonSpritesGfxManager;
+    struct MonSpritesGfxManager *gfx = sMonSpritesGfxManagers;
 
     if (gfx == NULL)
         return;
@@ -7110,7 +7110,7 @@ void DestroyMonSpritesGfxManager(void)
 
 u8 *MonSpritesGfxManager_GetSpritePtr(u8 spriteNum)
 {
-    struct MonSpritesGfxManager *gfx = sMonSpritesGfxManager;
+    struct MonSpritesGfxManager *gfx = sMonSpritesGfxManagers;
 
     if (gfx->active)
     {
